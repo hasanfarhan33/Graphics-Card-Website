@@ -1,0 +1,26 @@
+:root {
+  --green: #80eb48;
+  --black: rgb(10, 10, 10);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+.navbar {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  background-color: #80eb48;
+}
+
+h1 {
+  text-align: center;
+}
