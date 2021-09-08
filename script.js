@@ -2,6 +2,9 @@ const gamesContainer = document.querySelector(".gamesContainer");
 const downloadSection = document.querySelector(".downloadSection");
 const chooseGamesText = document.querySelector(".chooseGamesText");
 const downloadHeading = document.querySelector(".downloadHeading");
+var progressBarWidth;
+var progressIncrement = 20;
+var incrementSlash = 0.2;
 
 // Loading game containers separately
 const gameContainers = document.querySelectorAll(
@@ -54,15 +57,51 @@ for (let i = 0; i < gameContainers.length; i++) {
         progressBarContainer.style.overflow = "hidden";
         downloadSection.appendChild(progressBarContainer);
 
+        // MOVING THE PROGRESS BAR
+        progressBarWidth = 0;
+        const interval = setInterval(function () {
+          if (progressBarWidth < 100) {
+            progressBarWidth += progressIncrement * incrementSlash;
+            progressBar.style.width = progressBarWidth + "%";
+            console.log(progressBarWidth);
+            if (progressBarWidth > 0 && progressBarWidth <= 20) {
+              chooseGamesText.innerHTML = "Finding slots...";
+              incrementSlash = 0.15;
+            } else if (progressBarWidth > 20 && progressBarWidth <= 50) {
+              chooseGamesText.innerHTML = "Choosing shaders...";
+              incrementSlash = 0.1;
+            } else if (progressBarWidth > 50 && progressBarWidth <= 80) {
+              chooseGamesText.innerHTML = "Generating VRAM...";
+              incrementSlash = 0.05;
+            } else if (progressBarWidth > 80 && progressBarWidth < 100) {
+              chooseGamesText.innerHTML = "Almost done";
+              incrementSlash = 0.02;
+              progressIncrement = 5;
+            }
+
+            if (progressBarWidth > 0) {
+              progressBar.style.left = "0";
+              progressBar.style.top = "0";
+              progressBar.style.height = "100%";
+              progressBar.style.backgroundColor = "rgb(40, 86, 128)";
+              progressBar.style.borderRadius = "10px";
+              progressBarContainer.appendChild(progressBar);
+            }
+            progressDisplay.innerHTML = Math.floor(progressBarWidth) + "%";
+          } else if (progressBarWidth >= 100) {
+            clearInterval();
+          }
+        }, 500);
+
         const progressBar = document.createElement("div");
-        var progressBarWidth = 15;
-        progressBar.style.left = "0";
-        progressBar.style.top = "0";
-        progressBar.style.height = "100%";
-        progressBar.style.width = progressBarWidth + "%";
-        progressBar.style.backgroundColor = "rgb(40, 86, 128)";
-        progressBar.style.borderRadius = "10px";
-        progressBarContainer.appendChild(progressBar);
+
+        //Display Progress
+        const progressDisplay = document.createElement("p");
+        progressDisplay.style.padding = "15px 10px";
+        progressDisplay.style.textAlign = "end";
+        progressDisplay.style.fontSize = "1.25em";
+        progressDisplay.style.color = "white";
+        progressBar.appendChild(progressDisplay);
       });
     }
   });

@@ -38,6 +38,12 @@ body {
   width: 20vw;
 }
 
+.downloadSection {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .downloadButton,
 .contactButton {
   text-decoration: none;
@@ -125,34 +131,37 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-inline: 20px;
+  cursor: pointer;
+  transition: box-shadow 250ms ease-in-out;
 }
 
-.gtaContainer p {
-  font-size: 1.25em;
+.gtaContainer .activated {
+  background-color: rgb(40, 86, 128);
 }
-.theWitcherThreeContainer p {
-  font-size: 1.25em;
+
+.gtaContainer:hover,
+.theWitcherThreeContainer:hover,
+.hitmanContainer:hover,
+.skyrimContainer:hover,
+.fifaContainer:hover,
+.fortniteContainer:hover,
+.apexLegendsContainer:hover,
+.projectCarsContainer:hover,
+.cyberpunkContainer:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
-.hitmanContainer p {
-  font-size: 1.25em;
-}
-.skyrimContainer p {
-  font-size: 1.25em;
-}
-.fifaContainer p {
-  font-size: 1.25em;
-}
-.fortniteContainer p {
-  font-size: 1.25em;
-}
-.apexLegendsContainer p {
-  font-size: 1.25em;
-}
-.projectCarsContainer p {
-  font-size: 1.25em;
-}
+
+.gtaContainer p,
+.theWitcherThreeContainer p,
+.hitmanContainer p,
+.skyrimContainer p,
+.fifaContainer p,
+.fortniteContainer p,
+.apexLegendsContainer p,
+.projectCarsContainer p,
 .cyberpunkContainer p {
-  font-size: 1.25em;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .gameImageContainer {
@@ -172,7 +181,7 @@ body {
 
 .theWitcherThreeContainer .gameImageContainer {
   background-image: url("gameIcons/theWitcher.png");
-  background-size: 130px auto;
+  background-size: 70px auto;
 }
 
 .hitmanContainer .gameImageContainer {
