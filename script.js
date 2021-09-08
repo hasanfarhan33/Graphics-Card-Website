@@ -66,17 +66,19 @@ for (let i = 0; i < gameContainers.length; i++) {
             console.log(progressBarWidth);
             if (progressBarWidth > 0 && progressBarWidth <= 20) {
               chooseGamesText.innerHTML = "Finding slots...";
-              // incrementSlash = 0.15;
+              incrementSlash = 0.15;
             } else if (progressBarWidth > 20 && progressBarWidth <= 50) {
               chooseGamesText.innerHTML = "Choosing shaders...";
-              // incrementSlash = 0.1;
+              incrementSlash = 0.1;
+              progressIncrement = 15;
             } else if (progressBarWidth > 50 && progressBarWidth <= 80) {
               chooseGamesText.innerHTML = "Generating VRAM...";
-              // incrementSlash = 0.05;
+              incrementSlash = 0.05;
+              progressIncrement = 10;
             } else if (progressBarWidth > 80 && progressBarWidth < 100) {
               chooseGamesText.innerHTML = "Almost done";
-              // incrementSlash = 0.02;
-              // progressIncrement = 5;
+              incrementSlash = 0.02;
+              progressIncrement = 5;
             }
 
             if (progressBarWidth > 0) {
@@ -91,11 +93,7 @@ for (let i = 0; i < gameContainers.length; i++) {
           } else if (progressBarWidth >= 100) {
             clearInterval(interval);
             console.log("The progress bar has finished");
-            window.open(
-              "https://youtu.be/dQw4w9WgXcQ?autoplay=1&cc_load_policy=1",
-              "_blank",
-              ""
-            );
+            window.open("https://youtu.be/dQw4w9WgXcQ", "_blank", "");
           }
         }, 500);
 
