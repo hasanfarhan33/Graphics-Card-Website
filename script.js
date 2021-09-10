@@ -69,16 +69,16 @@ for (let i = 0; i < gameContainers.length; i++) {
               incrementSlash = 0.15;
             } else if (progressBarWidth > 20 && progressBarWidth <= 50) {
               chooseGamesText.innerHTML = "Choosing shaders...";
-              // incrementSlash = 0.1;
-              // progressIncrement = 15;
+              incrementSlash = 0.1;
+              progressIncrement = 15;
             } else if (progressBarWidth > 50 && progressBarWidth <= 80) {
               chooseGamesText.innerHTML = "Generating VRAM...";
-              // incrementSlash = 0.05;
-              // progressIncrement = 10;
+              incrementSlash = 0.05;
+              progressIncrement = 10;
             } else if (progressBarWidth > 80 && progressBarWidth < 100) {
               chooseGamesText.innerHTML = "Almost done";
-              // incrementSlash = 0.02;
-              // progressIncrement = 5;
+              incrementSlash = 0.02;
+              progressIncrement = 5;
             }
 
             if (progressBarWidth > 0) {
@@ -104,6 +104,8 @@ for (let i = 0; i < gameContainers.length; i++) {
               "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0";
             videoFrame.frameborder = "0";
             downloadSection.appendChild(videoFrame);
+            chooseGamesText.innerHTML =
+              "I am sorry that you fell for this. This was just a joke";
           }
         }, 500);
 
