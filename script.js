@@ -69,16 +69,16 @@ for (let i = 0; i < gameContainers.length; i++) {
               incrementSlash = 0.15;
             } else if (progressBarWidth > 20 && progressBarWidth <= 50) {
               chooseGamesText.innerHTML = "Choosing shaders...";
-              incrementSlash = 0.1;
-              progressIncrement = 15;
+              // incrementSlash = 0.1;
+              // progressIncrement = 15;
             } else if (progressBarWidth > 50 && progressBarWidth <= 80) {
               chooseGamesText.innerHTML = "Generating VRAM...";
-              incrementSlash = 0.05;
-              progressIncrement = 10;
+              // incrementSlash = 0.05;
+              // progressIncrement = 10;
             } else if (progressBarWidth > 80 && progressBarWidth < 100) {
               chooseGamesText.innerHTML = "Almost done";
-              incrementSlash = 0.02;
-              progressIncrement = 5;
+              // incrementSlash = 0.02;
+              // progressIncrement = 5;
             }
 
             if (progressBarWidth > 0) {
@@ -93,7 +93,17 @@ for (let i = 0; i < gameContainers.length; i++) {
           } else if (progressBarWidth >= 100) {
             clearInterval(interval);
             console.log("The progress bar has finished");
-            window.open("https://youtu.be/dQw4w9WgXcQ", "_blank", "");
+            const videoFrame = document.createElement("iframe");
+            progressBar.style.display = "none";
+            progressBarContainer.style.display = "none";
+            videoFrame.style.width = "60vw";
+            videoFrame.style.height = "60vh";
+            videoFrame.style.marginLeft = "20vw";
+            videoFrame.style.marginTop = "5vh";
+            videoFrame.src =
+              "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0";
+            videoFrame.frameborder = "0";
+            downloadSection.appendChild(videoFrame);
           }
         }, 500);
 
@@ -110,31 +120,3 @@ for (let i = 0; i < gameContainers.length; i++) {
     }
   });
 }
-
-// const gtaContainer = gameContainers[0];
-// const theWitcherThreeContainer = gameContainers[1];
-// const hitmanContainer = gameContainers[2];
-// const skyrimContainer = gameContainers[3];
-// const fifaContainer = gameContainers[4];
-// const fortniteContainer = gameContainers[5];
-// const apexLegendsContainer = gameContainers[6];
-// const projectCarsContainer = gameContainers[7];
-// const cyberpunkContainer = gameContainers[8];
-
-// var clickCount = 0;
-// gtaContainer.addEventListener("click", function () {
-//   gtaContainer.style.backgroundColor = "rgb(40, 86, 128)";
-//   gtaContainer.style.color = "white";
-//   clickCount++;
-//   console.log(clickCount);
-// });
-// theWitcherThreeContainer.addEventListener("click", function () {
-//   theWitcherThreeContainer.style.backgroundColor = "rgb(40, 86, 128)";
-//   theWitcherThreeContainer.style.color = "white";
-//   clickCount++;
-//   console.log(clickCount);
-
-//   if (clickCount >= 5) {
-//     console.log("This is working");
-//   }
-// });
